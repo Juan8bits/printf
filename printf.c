@@ -33,9 +33,9 @@ int _printf(const char *format, ...)
 
 	va_start(listArg, format);
 	
-	if (format != NULL)
 	for (i = 0; ptrlistArg[i]; i++)
 	{
+		/* Comparar caracter de escape */
 		if (ptrlistArg[i] == 47)
 		{
 			for (j = 0; j < 7; j++)

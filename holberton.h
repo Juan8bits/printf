@@ -8,7 +8,7 @@
 typedef struct indicador
 {
 	char *ind;
-	char (*c)(void);
+	char* (*f)(void);
 }ind_t;
 
 typedef struct char_escape
@@ -19,5 +19,11 @@ typedef struct char_escape
 
 
 int _printf(const char *format, ...);
+char *ind_char(void);
+char *ind_string(void);
+char *ind_integer(void);
+char *ind_integer(void);
+char *ind_undintege(void);
+char *ind_porcent(void);
 
 #endif
