@@ -8,38 +8,47 @@
 int _printf(const char *format, ...)
 {
 	esc_t escc[] = {
-		{a, 7},
-		{b, 8},
-		{t, 9},
-		{n, 10},
-		{v, 11},
-		{f, 12},
-		{r, 13}
+		{'a', 7},
+		{'b', 8},
+		{'t', 9},
+		{'n', 10},
+		{'v', 11},
+		{'f', 12},
+		{'r', 13}
 	};
 	ind_t indv[] = {
-		{},
-		{},
-		{},
-		{}
+		{"c", ind_char},
+		{"s", ind_string},
+		{"d", ind_integer},
+		{"i", ind_integer},
+		{"u", ind_undinteger},
+		{"%", ind_porcent}
 	};
 
 	int i, j;
+	va_list listArg;
+	char *ptrlistArg;
+
+	ptrlistArg = format;
+
+	va_start(listArg, format);
+	
 	if (format != NULL)
-	for (i = 0; format[i]; i++)
+	for (i = 0; ptrlistArg[i]; i++)
 	{
-		if (format[i] == 47)
+		if (ptrlistArg[i] == 47)
 		{
 			for (j = 0; j < 7; j++)
 			{
-				if(format[i + 1] == escc[j].c)
-					format[i] == escc[j].ascci;
+				if(ptrlistArg[i + 1] == escc[j].c)
+					ptrlistArg[i] == escc[j].ascii;
 			}
 		}
-		else if (format[i] == 37)
+		else if (ptrlistArg[i] == 37)
 		{
 			for (j = 0; j < 4; j++)
 			{
-				format[i] == indv[j].in;
+				ptrlistArg[i] == indv[j].in;
 			}
 		}
 	}
