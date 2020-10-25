@@ -7,23 +7,23 @@
 
 typedef struct indicador
 {
-	char *ind;
-	char* (*f)(void);
+	char ind;
+	int (*function)(va_list);
 }ind_t;
 
 typedef struct char_escape
 {
-	char *c;
+	char c;
 	int ascii;
 }esc_t;
 
-
+int _putchar(char c);
 int _printf(const char *format, ...);
-char *ind_char(void);
-char *ind_string(void);
-char *ind_integer(void);
+int ind_char(va_list listArg);
+int ind_string(va_list listArg);
+/*char *ind_integer(void);
 char *ind_integer(void);
 char *ind_undintege(void);
-char *ind_porcent(void);
+char *ind_porcent(void);*/
 
 #endif

@@ -1,8 +1,9 @@
-#include <stdio.h>
+#include "holberton.h"
+
 /**
-*
-*
-*
+ *
+ *
+ *
 */
 
 int _printf(const char *format, ...)
@@ -17,39 +18,45 @@ int _printf(const char *format, ...)
 		{'r', 13}
 	};
 	ind_t indv[] = {
-		{"c", ind_char},
-		{"s", ind_string},
-		{"d", ind_integer},
-		{"i", ind_integer},
-		{"u", ind_undinteger},
-		{"%", ind_porcent}
+		{'c', ind_char},
+		{'s', ind_string}/*,
+		{'d', ind_integer},
+		{'i', ind_integer},
+		{'u', ind_undinteger},
+		{'%', ind_porcent}*/
 	};
 
 	int i, j;
 	va_list listArg;
-	char *ptrlistArg;
+	int contp;
 
-	ptrlistArg = format;
-
+	contp = 0;
 	va_start(listArg, format);
-	
-	for (i = 0; ptrlistArg[i]; i++)
+	for (i = 0; format[i]; i++)
 	{
 		/* Comparar caracter de escape */
-		if (ptrlistArg[i] == 47)
+		if (format[i] == 47)
 		{
 			for (j = 0; j < 7; j++)
 			{
-				if(ptrlistArg[i + 1] == escc[j].c)
-					ptrlistArg[i] == escc[j].ascii;
+				if(format[i + 1] == escc[j].c)
+					_putchar(escc[j].ascii);
 			}
+			contp++;
+			/* añadir edge case: el caracter no está en lista */
+			i++;
 		}
-		else if (ptrlistArg[i] == 37)
+		else if (format[i] == 37)
 		{
 			for (j = 0; j < 4; j++)
 			{
-				ptrlistArg[i] == indv[j].in;
+				if (format[i + 1] == indv[j].ind)
+					contp += indv[j].function(listArg);
 			}
+			i += 2;
 		}
+		_putchar(format[i]);
+		contp++;
 	}
+	return (contp);
 }
