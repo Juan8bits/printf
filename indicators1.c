@@ -42,10 +42,18 @@ int ind_porcent(va_list __attribute__((unused))a)
  * Return: adasd.
  */
 
-int ind_integer(va_list listArg)
+int ind_integer(va_list num)
 {
-	int i;
+	int i, j, con, dig = 10;
 
-	i = va_arg(listArg, int);
-
+	i = va_arg(num, int);
+	j = i;
+	for (con = 0; i > 10; con++, i /= 10);
+	for (con; con > 1; con--)
+		dig *= 10;
+	for (dig = potencia;dig > 0;dig /= 10)
+	{
+		_putchar(j / dig);
+		j %= dig;
+	}
 }
