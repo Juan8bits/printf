@@ -21,9 +21,9 @@ int _putchar(char c);
 int _printf(const char *format, ...);
 int ind_char(va_list listArg);
 int ind_string(va_list listArg);
+int ind_porcent();
 /*char *ind_integer(void);
 char *ind_integer(void);
-char *ind_undintege(void);
-char *ind_porcent(void);*/
+char *ind_undintege(void);*/
 
 #endif

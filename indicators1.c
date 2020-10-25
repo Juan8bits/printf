@@ -24,3 +24,15 @@ int ind_char(va_list listArg)
 	_putchar(va_arg(listArg, int));
 	return (1);
 }
+
+/**
+* ind_porcent -
+* @
+*
+*/
+
+int ind_porcent()
+{
+	_putchar('%');
+	return(1);
+}

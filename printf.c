@@ -19,11 +19,11 @@ int _printf(const char *format, ...)
 	};
 	ind_t indv[] = {
 		{'c', ind_char},
-		{'s', ind_string}/*,
+		{'s', ind_string},
+		{'%', ind_porcent}/*,
 		{'d', ind_integer},
 		{'i', ind_integer},
-		{'u', ind_undinteger},
-		{'%', ind_porcent}*/
+		{'u', ind_undinteger},*/
 	};
 
 	int i, j;
