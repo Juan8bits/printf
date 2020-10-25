@@ -8,14 +8,14 @@
 int (*get_ind_func(char s))(va_list)
 {
 	int j;
-        ind_t indv[] = {
-                {'c', ind_char},
-                {'s', ind_string},
-                {'%', ind_porcent}/*,
-                {'d', ind_integer},
-                {'i', ind_integer},
-                {'u', ind_undinteger},*/
-        };
+	ind_t indv[] = {
+		{'c', ind_char},
+		{'s', ind_string},
+		{'%', ind_porcent},
+		{'d', ind_integer},
+/*{'i', ind_integer},*/
+/*{'u', ind_undinteger},*/
+	};
 
 	for (j = 0; j < 4; j++)
 	{
@@ -24,15 +24,13 @@ int (*get_ind_func(char s))(va_list)
 	}
 	exit(99);
 }
-
 /**
  *
  *
- *
-*/
-
-int _printf(const char *format, ...)
+ */
+int  get_escc_func(char s)
 {
+	int j;
 	esc_t escc[] = {
 		{'a', 7},
 		{'b', 8},
@@ -43,7 +41,25 @@ int _printf(const char *format, ...)
 		{'r', 13}
 	};
 
-	int i, j;
+	for (j = 0; j < 7; j++)
+	{
+		if (s == escc[j].c)
+		{
+			_putchar(escc[j].ascii);
+			return (1);
+		}
+	}
+	return (0);
+}
+/**
+ *
+ *
+ *
+*/
+
+int _printf(const char *format, ...)
+{
+	int i;
 	va_list listArg;
 	int contp;
 
@@ -54,12 +70,7 @@ int _printf(const char *format, ...)
 		/* Comparar caracter de escape */
 		if (format[i] == 47)
 		{
-			for (j = 0; j < 7; j++)
-			{
-				if(format[i + 1] == escc[j].c)
-					_putchar(escc[j].ascii);
-			}
-			contp++;
+			contp += get_escc_func(format[i + 1]);
 			/* añadir edge case: el caracter no está en lista */
 			i++;
 		}

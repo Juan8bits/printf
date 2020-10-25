@@ -27,7 +27,7 @@ int ind_char(va_list listArg)
 
 /**
 * ind_porcent -
-* @
+* @listArg: List of arguments given.
 *
 */
 
@@ -35,4 +35,17 @@ int ind_porcent(va_list __attribute__((unused))a)
 {
 	_putchar('%');
 	return(1);
+}
+/**
+ *ind_integer -
+ * @listArg: List of arguments given.
+ * Return: adasd.
+ */
+
+int ind_integer(va_list listArg)
+{
+	int i;
+
+	i = va_arg(listArg, int);
+
 }
