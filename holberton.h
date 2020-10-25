@@ -31,7 +31,7 @@ int _putchar(char c);
 int _printf(const char *format, ...);
 int ind_char(va_list listArg);
 int ind_string(va_list listArg);
-int ind_porcent(void);
+int ind_porcent(va_list);
 /* char *ind_integer(void); */
 /*char *ind_integer(void); */
 /*char *ind_undintege(void);*/

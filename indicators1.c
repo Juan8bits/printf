@@ -31,7 +31,7 @@ int ind_char(va_list listArg)
 *
 */
 
-int ind_porcent()
+int ind_porcent(va_list __attribute__((unused))a)
 {
 	_putchar('%');
 	return(1);

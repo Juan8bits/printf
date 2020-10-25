@@ -1,4 +1,29 @@
 #include "holberton.h"
+/**
+*
+*
+*
+*/
+
+int (*get_ind_func(char s))(va_list)
+{
+	int j;
+        ind_t indv[] = {
+                {'c', ind_char},
+                {'s', ind_string},
+                {'%', ind_porcent}/*,
+                {'d', ind_integer},
+                {'i', ind_integer},
+                {'u', ind_undinteger},*/
+        };
+
+	for (j = 0; j < 4; j++)
+	{
+		if (s == indv[j].ind)
+			return (indv[j].function);
+	}
+	exit(99);
+}
 
 /**
  *
@@ -16,14 +41,6 @@ int _printf(const char *format, ...)
 		{'v', 11},
 		{'f', 12},
 		{'r', 13}
-	};
-	ind_t indv[] = {
-		{'c', ind_char},
-		{'s', ind_string},
-		{'%', ind_porcent}/*,
-		{'d', ind_integer},
-		{'i', ind_integer},
-		{'u', ind_undinteger},*/
 	};
 
 	int i, j;
@@ -48,11 +65,7 @@ int _printf(const char *format, ...)
 		}
 		else if (format[i] == 37)
 		{
-			for (j = 0; j < 4; j++)
-			{
-				if (format[i + 1] == indv[j].ind)
-					contp += indv[j].function(listArg);
-			}
+			contp += get_ind_func(format[i + 1])(listArg);
 			i += 2;
 		}
 		_putchar(format[i]);
