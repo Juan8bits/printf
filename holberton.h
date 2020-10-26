@@ -17,9 +17,10 @@ typedef struct indicador
 	int (*function)(va_list);
 } ind_t;
 /**
-*
-*
-*
+* struct char_escape - struct
+* @c: char
+* @ascii: ascci related with c
+* Description: c with related ascii
 */
 typedef struct char_escape
 {
