@@ -12,6 +12,14 @@ int ind_string(va_list listArg)
 
 	i = 0;
 	u = va_arg(listArg, char *);
+	if (u == NULL)
+		u = "(null)";
+		while (u[i] != 0)
+		{
+			_putchar(u[i]);
+			i++;
+		}
+		return (6);
 	while (u[i] != 0)
 	{
 		_putchar(u[i]);
