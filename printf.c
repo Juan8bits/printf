@@ -3,7 +3,7 @@
 /**
 * get_ind_func - get the name of the function depending of the type
 * @s: char after %
-* Return: -1 if type it's not found, else obtain function and # of char 
+* Return: -1 if type it's not found, else obtain function and # of char
 */
 
 int (*get_ind_func(char s))(va_list)
@@ -23,7 +23,7 @@ int (*get_ind_func(char s))(va_list)
 		if (s == indv[j].ind)
 			return (indv[j].function);
 	}
-	exit(-1);
+	return (-1);
 }
 
 /**
@@ -52,7 +52,8 @@ int  get_escc_func(char s)
 			return (1);
 		}
 	}
-	exit(-1);
+	_putchar(s);
+	return (1);
 }
 
 /**
@@ -63,28 +64,35 @@ int  get_escc_func(char s)
 
 int _printf(const char *format, ...)
 {
-	int i;
+	int i, retind = 0;
 	va_list listArg;
 	int contp;
 
 	contp = 0;
 	va_start(listArg, format);
-	for (i = 0; format[i]; i++)
+	if (format != 0)
 	{
-		/* Comparar caracter de escape */
-		if (format[i] == 47)
+		for (i = 0; format[i]; i++)
 		{
-			contp += get_escc_func(format[i + 1]);
-			/* añadir edge case: el caracter no está en lista */
-			i++;
+			/* Comparar caracter de escape */
+			if (format[i] == 47)
+			{
+			        contp += get_escc_func(format[i + 1]);
+				/* añadir edge case: el caracter no está en lista */
+				i++;
+			}
+			else if (format[i] == 37)
+			{
+				retind = get_ind_func(format[i + 1])(listArg);
+				if (retind < 0)
+					return (-1);
+				contp += retind;
+				i += 2;
+			}
+			_putchar(format[i]);
+			contp++;
 		}
-		else if (format[i] == 37)
-		{
-			contp += get_ind_func(format[i + 1])(listArg);
-			i += 2;
-		}
-		_putchar(format[i]);
-		contp++;
+		return (contp);
 	}
-	return (contp);
+	return (-1);
 }
