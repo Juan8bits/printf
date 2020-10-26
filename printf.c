@@ -1,8 +1,9 @@
 #include "holberton.h"
+
 /**
-*
-*
-*
+* get_ind_func - get the name of the function depending of the type
+* @s: char after %
+* Return: -1 if type it's not found, else obtain function and # of char 
 */
 
 int (*get_ind_func(char s))(va_list)
@@ -22,12 +23,14 @@ int (*get_ind_func(char s))(va_list)
 		if (s == indv[j].ind)
 			return (indv[j].function);
 	}
-	exit(99);
+	exit(-1);
 }
+
 /**
- *
- *
- */
+* get_escc_func - get the name of the function depending of the especial escape
+* @s: char afetr /
+* Return: -1 if esp. esc. it's not found, else return ascii 
+*/
 int  get_escc_func(char s)
 {
 	int j;
@@ -49,8 +52,9 @@ int  get_escc_func(char s)
 			return (1);
 		}
 	}
-	return (0);
+	exit(-1);
 }
+
 /**
  *
  *

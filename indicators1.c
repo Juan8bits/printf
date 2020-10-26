@@ -44,10 +44,9 @@ int ind_porcent(va_list __attribute__((unused))a)
 
 int ind_integer(va_list num)
 {
-	int i, j, con, flag, dig = 1;
+	int i, j, con, flag = 0, dig = 1;
 
 	i = va_arg(num, int);
-	flag = 0
 	if (i < 0)
 	{
 		i *= -1;
@@ -55,13 +54,15 @@ int ind_integer(va_list num)
 		_putchar('-');
 	}
 	j = i;
-	for (con = 0; i > 9; con++, i /= 10);
-	for (con; con > 0; con--)
+	for (con = 0; i > 9; con++, i /= 10)
+		;
+	for (; con > 0; con--)
 		dig *= 10;
-	for (dig, con = 0; dig > 0 ; dig /= 10, con++)
+	for (con = 0; dig > 0 ; dig /= 10)
 	{
 		_putchar(48 + (j / dig));
 		j %= dig;
+		con++;
 	}
 	return (con + flag);
 }
