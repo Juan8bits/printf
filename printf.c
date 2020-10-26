@@ -82,7 +82,7 @@ int _printf(const char *format, ...)
 			}
 			else if (format[i] == 37)
 			{
-				if (format [i + 1] == 0)
+				if (format[i + 1] == 0)
 					return (-1);
 				retind = get_ind_func(format[i + 1])(listArg);
 				if (retind >= 0 || format[i + 1] == 37)
