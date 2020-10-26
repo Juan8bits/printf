@@ -12,8 +12,7 @@ int (*get_ind_func(char s))(va_list)
 	ind_t indv[] = {
 		{'c', ind_char},
 		{'s', ind_string},
-		{'%', ind_porcent},
-		{'d', ind_integer},
+		{'d', ind_integer}
 /*{'i', ind_integer},*/
 /*{'u', ind_undinteger},*/
 	};
@@ -23,7 +22,7 @@ int (*get_ind_func(char s))(va_list)
 		if (s == indv[j].ind)
 			return (indv[j].function);
 	}
-	return (*ind_fail);
+	return (ind_porcent);
 }
 
 /**
@@ -83,11 +82,14 @@ int _printf(const char *format, ...)
 			}
 			else if (format[i] == 37)
 			{
-				retind = get_ind_func(format[i + 1])(listArg);
-				if (retind < 0)
+				if (format [i + 1] == 0)
 					return (-1);
+				retind = get_ind_func(format[i + 1])(listArg);
+				if (retind >= 0 || format[i + 1] == 37)
+					i++;
+				else
+					retind = 1;
 				contp += retind;
-				i++;
 			}
 			else
 			{

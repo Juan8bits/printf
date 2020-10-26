@@ -49,7 +49,7 @@ int ind_char(va_list listArg)
 int ind_porcent(va_list __attribute__((unused))a)
 {
 	_putchar('%');
-	return (1);
+	return (-2);
 }
 /**
  *ind_integer - Function that print an integer number.
