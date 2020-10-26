@@ -1,21 +1,26 @@
 #include "holberton.h"
+
 /**
- * ind_string -
+ * ind_string - Function that print string.
  * @listArg: List of arguments given.
  * Return: putchar number times.
  */
 int ind_string(va_list listArg)
 {
-        char *u;
-        int i;
+	char *u;
+	int i;
 
-        u = va_arg(listArg, char *);
-        for (i = 0; u[i] != 0; i++)
-                _putchar(u[i]);
-        return (i);
+	i = 0;
+	u = va_arg(listArg, char *);
+	while (u[i] != 0)
+	{
+		_putchar(u[i]);
+		i++;
+	}
+	return (i);
 }
 /**
- * ind_char -
+ * ind_char - Function that print char.
  * @listArg: List of arguments given.
  * Return: putchar number times.
  */
@@ -26,26 +31,27 @@ int ind_char(va_list listArg)
 }
 
 /**
-* ind_porcent -
-* @listArg: List of arguments given.
-*
+* ind_porcent - Function that print %.
+* @a: List of arguments given.
+* Return: putchar number times.
 */
 
 int ind_porcent(va_list __attribute__((unused))a)
 {
 	_putchar('%');
-	return(1);
+	return (1);
 }
 /**
- *ind_integer -
- * @listArg: List of arguments given.
- * Return: adasd.
+ *ind_integer - Function that print an integer number.
+ * @num: List of arguments given.
+ * Return: putchar number times.
  */
 
 int ind_integer(va_list num)
 {
-	int i, j, con, flag = 0, dig = 1;
+	int i, j, con, flag, dig;
 
+	flag = 0, dig = 1;
 	i = va_arg(num, int);
 	if (i < 0)
 	{

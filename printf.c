@@ -29,7 +29,7 @@ int (*get_ind_func(char s))(va_list)
 /**
 * get_escc_func - get the name of the function depending of the especial escape
 * @s: char afetr /
-* Return: -1 if esp. esc. it's not found, else return ascii 
+* Return: -1 if esp. esc. it's not found, else return ascii
 */
 int  get_escc_func(char s)
 {
@@ -57,9 +57,9 @@ int  get_escc_func(char s)
 }
 
 /**
- *
- *
- *
+ * _printf - Functiont that do printf function
+ * @format: Pointer to adrres.
+ * Return: Putchar number times.
 */
 
 int _printf(const char *format, ...)
@@ -77,7 +77,7 @@ int _printf(const char *format, ...)
 			/* Comparar caracter de escape */
 			if (format[i] == 47)
 			{
-			        contp += get_escc_func(format[i + 1]);
+				contp += get_escc_func(format[i + 1]);
 				/* añadir edge case: el caracter no está en lista */
 				i++;
 			}
@@ -90,8 +90,10 @@ int _printf(const char *format, ...)
 				i++;
 			}
 			else
+			{
 				_putchar(format[i]);
-			contp++;
+				contp++;
+			}
 		}
 		return (contp);
 	}
