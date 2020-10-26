@@ -66,3 +66,14 @@ int ind_integer(va_list num)
 	}
 	return (con + flag);
 }
+
+/**
+* ind_fail - return fail cases
+* @a: unused list
+* Return: -1 always
+*/
+
+int ind_fail(va_list __attribute__((unused))a)
+{
+	return (-1);
+}

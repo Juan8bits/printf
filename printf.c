@@ -23,7 +23,7 @@ int (*get_ind_func(char s))(va_list)
 		if (s == indv[j].ind)
 			return (indv[j].function);
 	}
-	return (-1);
+	return (*ind_fail);
 }
 
 /**
@@ -87,9 +87,10 @@ int _printf(const char *format, ...)
 				if (retind < 0)
 					return (-1);
 				contp += retind;
-				i += 2;
+				i++;
 			}
-			_putchar(format[i]);
+			else
+				_putchar(format[i]);
 			contp++;
 		}
 		return (contp);
