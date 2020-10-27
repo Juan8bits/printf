@@ -13,11 +13,12 @@ int (*get_ind_func(char s))(va_list)
 		{'c', ind_char},
 		{'s', ind_string},
 		{'d', ind_integer},
-		{'i', ind_integer}
+		{'i', ind_integer},
+		{'b', ind_binary}
 /*{'u', ind_undinteger},*/
 	};
 
-	for (j = 0; j < 4; j++)
+	for (j = 0; j < 5; j++)
 	{
 		if (s == indv[j].ind)
 			return (indv[j].function);
