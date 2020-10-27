@@ -12,8 +12,8 @@ int (*get_ind_func(char s))(va_list)
 	ind_t indv[] = {
 		{'c', ind_char},
 		{'s', ind_string},
-		{'d', ind_integer}
-/*{'i', ind_integer},*/
+		{'d', ind_integer},
+		{'i', ind_integer}
 /*{'u', ind_undinteger},*/
 	};
 
