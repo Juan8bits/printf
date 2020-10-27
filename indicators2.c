@@ -7,11 +7,14 @@
  */
 int ind_binary(va_list a)
 {
-	int number;
+	unsigned int number;
 
-	number = va_arg(a, int);
-	if (number < 0)
-		return (-3);
+	number = va_arg(a, unsigned int);
+	if (number == 0)
+	{
+		_putchar(48 + number);
+		return (1);
+	}
 	return (dec_to_bin(number));
 }
 
@@ -21,7 +24,7 @@ int ind_binary(va_list a)
  * Return: contp.
  */
 
-int dec_to_bin(int number)
+int dec_to_bin(unsigned int number)
 {
 	short int mod;
 	unsigned int contp;
