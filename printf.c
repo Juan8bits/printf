@@ -88,6 +88,8 @@ int _printf(const char *format, ...)
 				retind = get_ind_func(format[i + 1])(listArg);
 				if (retind >= 0 || format[i + 1] == 37)
 					i++;
+				if (retind == -3)
+					return (-1);
 				if (retind < 0)
 					retind = 1;
 				contp += retind;
