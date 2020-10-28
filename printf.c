@@ -16,7 +16,6 @@ int (*get_ind_func(char s))(va_list)
 		{'i', ind_integer},
 		{'b', ind_binary},
 		{'S', ind_literal}
-/*{'u', ind_undinteger},*/
 	};
 
 	for (j = 0; j < 6; j++)
@@ -75,13 +74,13 @@ int _printf(const char *format, ...)
 	{
 		for (i = 0; format[i]; i++)
 		{
-			/* Comparar caracter de escape */
+			/*Is the character to compare an escape character? */
 			if (format[i] == 47)
 			{
 				contp += get_escc_func(format[i + 1]);
-				/* añadir edge case: el caracter no está en lista */
 				i++;
 			}
+			/* Is the character to compare an indicator? */
 			else if (format[i] == 37)
 			{
 				if (format[i + 1] == 0)
