@@ -41,3 +41,39 @@ int dec_to_bin(unsigned int number)
 	}
 	return (contp);
 }
+
+/**
+ * ind_literal - Function that prints literal strings
+ * @S: Argument given.
+ * Return: putchar print times.
+ */
+int ind_literal(va_list S)
+{
+	char *u;
+	int i;
+
+	i = 0;
+	u = va_arg(S, char *);
+	if (u == NULL)
+	{
+		u = "(null)";
+		while (u[i] != 0)
+		{
+			_putchar(u[i]);
+			i++;
+		}
+		return (6);
+	}
+	while (u[i] != 0)
+	{
+		if ((u[i] > 0 && u[i] < 32) || u[i] >= 127)
+		{
+			_putchar('\\');
+			_putchar('x');
+		}
+		else
+			_putchar(u[i]);
+		i++;
+	}
+	return (i);
+}

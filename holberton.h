@@ -37,6 +37,7 @@ int ind_integer(va_list);
 int ind_binary(va_list);
 int dec_to_bin(unsigned int number);
 int ind_fail(va_list);
+int ind_literal(va_list);
 /*char *ind_integer(void); */
 /*char *ind_undintege(void);*/
 
