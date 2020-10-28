@@ -34,6 +34,6 @@
 * man_3_printf
 ---
 ## Authors
-**Carolina Hernandez** - [CarolinaHV](https://github.com/CarolinaHV)
-**Juan Manuel Ramirez** - [Juan8bits](https://github.com/Juan8bits)
-**Soren Acevedo** - [SorenAcevedo](https://github.com/SorenAcevedo/)
+* **Carolina Hernandez** - [CarolinaHV](https://github.com/CarolinaHV)
+* **Juan Manuel Ramirez** - [Juan8bits](https://github.com/Juan8bits)
+* **Soren Acevedo** - [SorenAcevedo](https://github.com/SorenAcevedo/)
